@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>A46 Electricity Bill Calculator</title>
-        <h1>A46 Electric Bill</h1>
+        <title>Electricity Bill Calculator</title>
         <?php
-            require_once "count.php"; 
+            require_once "count.php";
+            require_once "navbar.php"; 
             $msg = "";
             $result = "";
             if(isset($_POST["calculatePPU"])){
@@ -20,17 +20,17 @@
         ?>
     </head>
     <body>
-        <form method="POST">
+        <!-- <form method="POST">
             <input type="number" name="totalWatt" placeholder="Total Watt (kWh)" required min=1>
             <input type="number" name="totalPrice" placeholder="Total Price (RM)" required min=1><br>
             <br><input type="submit" name="calculatePPU" value="Calculate PPU">
             <?php
-                echo "<p style='color:red'>".$msg."</p>";     
-                if($result != ""){
-                    echo "<p s'>Price Per Unit: RM ".$result."</p>";
-                }
+                // echo "<p style='color:red'>".$msg."</p>";     
+                // if($result != ""){
+                //     echo "<p s'>Price Per Unit: RM ".$result."</p>";
+                // }
             ?>    
-        </form>
+        </form> -->
     </body>
-    <footer>&copy; Copyright 2021 PhD</footer>
+    <footer><?php require_once "footer.php"; ?></footer>
 </html>
