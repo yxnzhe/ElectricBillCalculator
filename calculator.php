@@ -27,7 +27,7 @@
         <input type="number" name="totalPrice" placeholder="Total Price (RM)" required min=1 step=".01"><br>
         <?php
             echo "<p style='color:red'>".$msg."</p>";     
-            if($ppu != ""){
+            if($ppu != 0.00){
                 echo "<p s'>Price Per Unit: RM ".$ppu."</p>";
             }
         ?>    
