@@ -50,7 +50,7 @@
         <br><br><input type="submit" name="calculate" value="Calculate">
     </form>
     <?php
-        if(isset($_SESSION["userUsage"])){
+        if($_SESSION["userUsage"] != 0){
             for($k=1; $k < 4; $k++){
                 $curUser = "user".$k;
                 echo $_SESSION[$curUser."Name"]." Usage: ".$_SESSION[$curUser."Usage"].", ";
