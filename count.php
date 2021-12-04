@@ -11,7 +11,8 @@
     }
 
     function countUsage($curUsage, $prvUsage){ //calculate the usage
-        return $usage = $curUsage - $prvUsage;
+            $usage = $curUsage - $prvUsage;
+        return number_format((float)$usage, 2, '.', '');
     }
 
     function countPrice($usage, $ppu){

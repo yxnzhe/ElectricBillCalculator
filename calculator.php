@@ -5,7 +5,7 @@
         // session_unset();
         // print_r($_SESSION);
         $msg = "";
-        $ppu = "";
+        $ppu = 0.00;
         if(isset($_POST["calculate"])){
             $totalWatt = $_POST["totalWatt"];
             $totalPrice = $_POST["totalPrice"];
@@ -14,7 +14,7 @@
                 $curUser = "user".$i;
                 $curUsage = $_POST[$curUser."CurUsage"];
                 $prvUsage = $_POST[$curUser."PrvUsage"];
-                $_SESSION[$curUser."Usage"] = countUsage($curUsage, $prvUsage);
+                $_SESSION[$curUser."Usage"] = countUsage(floatval($curUsage), floatval($prvUsage));
                 $_SESSION[$curUser."Price"] = countPrice($_SESSION[$curUser."Usage"], $ppu);
             }
         }
