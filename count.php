@@ -18,7 +18,7 @@
         return $price = $usage * $ppu;
     }
 
-    function countCommonArea($totalUsage, $userUsage){
-        return $commonArea = $totalUsage - $userUsage;
+    function countCommonArea($totalUsage, $userUsage, $ppu){
+        return $commonArea = ($totalUsage - $userUsage) * $ppu;
     }
 ?>
