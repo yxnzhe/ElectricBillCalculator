@@ -13,6 +13,7 @@
             $ppu = round(pricePerUnit($totalWatt, $totalPrice), 2);
             for($i=1; $i < 4; $i++){
                 $curUser = "user".$i;
+                $_SESSION[$curUser."Name"] = $_POST[$curUser."Name"];
                 $curUsage = $_POST[$curUser."CurUsage"];
                 $prvUsage = $_POST[$curUser."PrvUsage"];
                 $_SESSION[$curUser."Usage"] = countUsage(floatval($curUsage), floatval($prvUsage));
@@ -31,15 +32,18 @@
                 echo "<p s'>Price Per Unit: RM ".$ppu."</p>";
             }
         ?>    
-        <h2>Dr Alvin</h2>
+        <!-- <h2>Dr Alvin</h2> -->
+        <input type="text" name="user1Name" placeholder="User Name" required><br><br>
         <input type="number" name="user1PrvUsage" placeholder="Previous Usage (kWh)" required min=1 step=".01">
         <input type="number" name="user1CurUsage" placeholder="Current Usage (kWh)" required min=1 step=".01"><br><br>
 
-        <h2>Dr Philbert</h2>
+        <!-- <h2>Dr Philbert</h2> -->
+        <input type="text" name="user2Name" placeholder="User Name" required><br><br>
         <input type="number" name="user2PrvUsage" placeholder="Previous Usage (kWh)" required min=1 step=".01">
         <input type="number" name="user2CurUsage" placeholder="Current Usage (kWh)" required min=1 step=".01"><br><br>
 
-        <h2>Dr Ives</h2>
+        <!-- <h2>Dr Ives</h2> -->
+        <input type="text" name="user3Name" placeholder="User Name" required><br><br>
         <input type="number" name="user3PrvUsage" placeholder="Previous Usage (kWh)" required min=1 step=".01">
         <input type="number" name="user3CurUsage" placeholder="Current Usage (kWh)" required min=1 step=".01">
 
@@ -49,8 +53,8 @@
         if(isset($_SESSION["user3Usage"])){
             for($k=1; $k < 4; $k++){
                 $curUser = "user".$k;
-                echo "User ".$k." Usage: ".$_SESSION[$curUser."Usage"]." ";
-                echo "User ".$k." Price: RM ".round($_SESSION[$curUser."Price"], 2);
+                echo $_SESSION[$curUser."Name"]." Usage: ".$_SESSION[$curUser."Usage"].", ";
+                echo $_SESSION[$curUser."Name"]." Price: RM ".round($_SESSION[$curUser."Price"], 2);
                 echo "<br>";
 
                 $_SESSION["userUsage"] = $_SESSION["userUsage"] + $_SESSION[$curUser."Usage"];
