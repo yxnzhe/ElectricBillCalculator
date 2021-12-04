@@ -15,11 +15,11 @@
         return number_format((float)$usage, 2, '.', '');
     }
 
-    function countPrice($usage, $ppu){
-        return $price = $usage * $ppu;
+    function countPrice($usage, $pricePerUnit){
+        return $price = $usage * $pricePerUnit;
     }
 
-    function countCommonArea($totalUsage, $userUsage, $ppu){
-        return $commonArea = ($totalUsage - $userUsage) * $ppu;
+    function countCommonArea($totalUsage, $userUsage, $pricePerUnit){
+        return $commonArea = ($totalUsage - $userUsage) * $pricePerUnit;
     }
 ?>

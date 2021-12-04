@@ -5,19 +5,19 @@
         session_unset();
         // print_r($_SESSION);
         $msg = "";
-        $ppu = 0.00;
+        $pricePerUnit = 0.00;
         $_SESSION["userUsage"] = 0;
         if(isset($_POST["calculate"])){
             $totalWatt = $_POST["totalWatt"];
             $totalPrice = $_POST["totalPrice"];
-            $ppu = round(pricePerUnit($totalWatt, $totalPrice), 2);
+            $pricePerUnit = round(pricePerUnit($totalWatt, $totalPrice), 2);
             for($i=1; $i < 4; $i++){
                 $curUser = "user".$i;
                 $_SESSION[$curUser."Name"] = $_POST[$curUser."Name"];
                 $curUsage = $_POST[$curUser."CurUsage"];
                 $prvUsage = $_POST[$curUser."PrvUsage"];
                 $_SESSION[$curUser."Usage"] = countUsage(floatval($curUsage), floatval($prvUsage));
-                $_SESSION[$curUser."Price"] = countPrice($_SESSION[$curUser."Usage"], $ppu);
+                $_SESSION[$curUser."Price"] = countPrice($_SESSION[$curUser."Usage"], $pricePerUnit);
             }
         }
     ?>
@@ -28,8 +28,8 @@
         <input type="number" name="totalPrice" placeholder="Total Price (RM)" required min=1 step=".01"><br>
         <?php
             echo "<p style='color:red'>".$msg."</p>";     
-            if($ppu != 0.00){
-                echo "<p s'>Price Per Unit: RM ".$ppu."</p>";
+            if($pricePerUnit != 0.00){
+                echo "<p s'>Price Per Unit: RM ".$pricePerUnit."</p>";
             }
         ?>    
         <!-- <h2>Dr Alvin</h2> -->
@@ -59,7 +59,7 @@
 
                 $_SESSION["userUsage"] = $_SESSION["userUsage"] + $_SESSION[$curUser."Usage"];
             }
-            $commonArea = countCommonArea($totalWatt, $_SESSION["userUsage"], $ppu);
+            $commonArea = countCommonArea($totalWatt, $_SESSION["userUsage"], $pricePerUnit);
             echo "Common Area: RM ".$commonArea." per person";
         }
     ?>
