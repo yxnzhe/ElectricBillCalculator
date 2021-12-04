@@ -36,6 +36,8 @@
 
         <h2>Dr Philbert</h2>
         <input type="number" name="user2PrvUsage" placeholder="Previous Usage (kWh)">
+        <input type="number" name="user2CurUsage" placeholder="Current Usage (kWh)">
+
 
         <h2>Dr Ives</h2>
         <input type="number" name="user3PrvUsage" placeholder="Previous Usage (kWh)">
