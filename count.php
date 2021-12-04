@@ -1,9 +1,11 @@
 <?php
-    $pricePerUnit = 0.00;
-    $totalWatt = 0;
-    $totalPrice = 0.00;
-
     function pricePerUnit($totalWatt, $totalPrice){
-        return $pricePerUnit = ($totalPrice / $totalWatt);
+        $pricePerUnit = ($totalPrice / $totalWatt);
+        return number_format((float)$pricePerUnit, 2, '.', '');
+    }
+
+    function calculatePrice($watt, $pricePerUnit) {
+        $price = $watt * $pricePerUnit;
+        return number_format((float)$price, 2, '.', '');
     }
 ?>
