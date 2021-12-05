@@ -50,18 +50,17 @@
         <br><br><input type="submit" name="calculate" value="Calculate">
     </form>
     <?php
-        if($_SESSION["userUsage"] != 0){
+        if(isset($_SESSION["user3Usage"])){
             for($k=1; $k < 4; $k++){
                 $curUser = "user".$k;
                 echo $_SESSION[$curUser."Name"]." Usage: ".$_SESSION[$curUser."Usage"].", ";
                 echo $_SESSION[$curUser."Name"]." Price: RM ".round($_SESSION[$curUser."Price"], 2);
                 echo "<br>";
-
                 $_SESSION["userUsage"] = $_SESSION["userUsage"] + $_SESSION[$curUser."Usage"];
             }
-            $commonArea = countCommonArea($totalWatt, $_SESSION["userUsage"], $pricePerUnit);
-            echo "Total Common Area: RM ".$commonArea;
-            echo "<br>Common Area per person: RM ".($commonArea/3);
+            $commonArea = countCommonArea(floatval($totalWatt), floatval($_SESSION["userUsage"]), floatval($pricePerUnit));
+            echo "Total Common Area: RM ".round($commonArea, 2);
+            echo "<br>Common Area per person: RM ".round(($commonArea / 3), 2);
         }
     ?>
 </body>
