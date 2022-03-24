@@ -1,4 +1,6 @@
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <?php 
         require_once "navbar.php";
         require_once "count.php";
@@ -23,15 +25,48 @@
     ?>
 </head>
 <body>
-    <form method="POST">
-        <input type="number" name="totalWatt" placeholder="Total Watt (kWh)" required min=1 step=".01">
-        <input type="number" name="totalPrice" placeholder="Total Price (RM)" required min=1 step=".01"><br>
+<div class="stepper d-flex flex-column mt-3 ml-2">
+    <form method="POST" class="ml-3">
+    <br>
+    <div class="d-flex mb-1">
+      <div class="d-flex flex-column pr-4 align-items-center">
+        <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">1</div>
+        <div class="line h-100"></div>
+      </div>
+      <div>
+        <h5 class="text-dark">Enter Your Total Consumption & Total Price</h5>
+        <p class="lead text-muted pb-3">You can find the Total Consumtion(kWh) & Price on Your Bill</p>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Total Consumption (kWh)</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="number" name="totalWatt" placeholder="Total Watt (kWh)" required min=1 step=".01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Total Price</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="number" name="totalPrice" placeholder="Total Price (RM)" required min=1 step=".01"><br>
+        </div>
+    </div>
         <?php
             echo "<p style='color:red'>".$msg."</p>";     
             if($pricePerUnit != 0.00){
-                echo "<p s'>Price Per Unit: RM ".$pricePerUnit."</p>";
+                echo "<p class=".'text-info'.">Price Per Unit: RM ".$pricePerUnit."</p>";
             }
-        ?>    
+        ?>
+        <br>
+        <div class="d-flex mb-1">
+            <div class="d-flex flex-column pr-4 align-items-center">
+                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">2</div>
+                <div class="line h-100"></div>
+            </div>
+            <div>
+                <h5 class="text-dark">Enter Your User's Name With thier Previous and Current Readings of the meter</h5>
+                <p class="lead text-muted pb-3">You can get the Readings from the meter.</p>
+            </div>
+        </div>
         <!-- <h2>Dr Alvin</h2> -->
         <input type="text" name="user1Name" placeholder="User Name" required><br><br>
         <input type="number" name="user1PrvUsage" placeholder="Previous Usage (kWh)" required min=1 step=".01">
@@ -47,10 +82,25 @@
         <input type="number" name="user3PrvUsage" placeholder="Previous Usage (kWh)" required min=1 step=".01">
         <input type="number" name="user3CurUsage" placeholder="Current Usage (kWh)" required min=1 step=".01">
 
-        <br><br><input type="submit" name="calculate" value="Calculate">
+        <br><br><input class="btn btn-danger btn-outline-warning" type="submit" name="calculate" value="Calculate Bill">
     </form>
+  </div>
+  <div class="d-flex mb-1 ml-4">
+        <div class="d-flex flex-column pr-4 align-items-center">
+            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">3</div>
+            <div class="line h-100"></div>
+        </div>
+        <div>
+            <h5 class="text-dark">Usages :</h5>
+            <p class="lead text-muted pb-3">
     <?php
         if(isset($_SESSION["user3Usage"])){
+            $pax = 3; //total pax
+            $t=time();
+            echo "<p class=".'text-info'.">Price Per Unit: RM ".$pricePerUnit."</p>";
+            echo("Date <br>");
+            echo(date("Y-m-d",$t));
+            echo("<br>");
             for($k=1; $k < 4; $k++){
                 $curUser = "user".$k;
                 echo $_SESSION[$curUser."Name"]." Usage: ".$_SESSION[$curUser."Usage"].", ";
@@ -60,8 +110,11 @@
             }
             $commonArea = countCommonArea(floatval($totalWatt), floatval($_SESSION["userUsage"]), floatval($pricePerUnit));
             echo "Total Common Area: RM ".round($commonArea, 2);
-            echo "<br>Common Area per person: RM ".round(($commonArea / 3), 2);
+            echo "<br>Common Area per person: RM ".round(($commonArea / $pax), 2);
         }
     ?>
+    </p>
+        </div>
+    </div>
 </body>
 <footer><?php require_once "footer.php"; ?></footer>
