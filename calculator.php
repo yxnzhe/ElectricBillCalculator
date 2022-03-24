@@ -1,5 +1,6 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <?php 
         require_once "navbar.php";
@@ -23,8 +24,40 @@
             }
         }
     ?>
+
+    
 </head>
 <body>
+<script>
+        //ajax
+        function add_number(e) {
+        if (isNumberKey(e)) {
+            setTimeout(() => {
+            var totalWatt = document.getElementById("totalWatt").value !== "" ? parseInt(document.getElementById("totalWatt").value) : 1;
+            var totalPrice = document.getElementById("totalPrice").value !== "" ? parseInt(document.getElementById("totalPrice").value) : 1;
+            if(totalPrice||totalWatt < 0){
+                var result = totalPrice / totalWatt;
+            }else{
+                var result = "ERROR";
+            }
+            console.log(result);
+            document.getElementById("ppu").value = result;
+            }, 50)
+            return true;
+        } else {
+            return false;
+        }
+        }
+
+        function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+        }
+</script>
+
 <div class="stepper d-flex flex-column mt-3 ml-2">
     <form method="POST" class="ml-3">
     <br>
@@ -41,21 +74,21 @@
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-3 col-form-label">Total Consumption (kWh)</label>
         <div class="col-sm-6">
-            <input class="form-control" type="number" name="totalWatt" placeholder="Total Watt (kWh)" required min=1 step=".01">
+        <input class="form-control" type="text" name="totalWatt" id="totalWatt" placeholder="Total Watt (kWh)" required min=1 step=".01" onkeypress="return add_number(event)">
         </div>
     </div>
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-3 col-form-label">Total Price</label>
         <div class="col-sm-6">
-            <input class="form-control" type="number" name="totalPrice" placeholder="Total Price (RM)" required min=1 step=".01"><br>
+        <input class="form-control" type="text" name="totalPrice" id="totalPrice" placeholder="Total Price (RM)" required min=1 step=".01" onkeypress="return add_number(event)"><br>
         </div>
     </div>
         <?php
             echo "<p style='color:red'>".$msg."</p>";     
-            if($pricePerUnit != 0.00){
-                echo "<p class=".'text-info'.">Price Per Unit: RM ".$pricePerUnit."</p>";
-            }
         ?>
+        <h5 class="text-info">Price Per Unit: RM 
+        <input class="text-info" type="text" id="ppu" disabled style="border:0">
+        </h5>
         <br>
         <div class="d-flex mb-1">
             <div class="d-flex flex-column pr-4 align-items-center">
