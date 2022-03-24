@@ -64,7 +64,7 @@
                 var result = "ERROR";
             }
             console.log(result);
-            document.getElementById("ppu").value = result;
+            document.getElementById("ppu").value = result.toFixed(2);
             }, 50)
             return true;
         } else {
