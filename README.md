@@ -1,4 +1,3 @@
-﻿# Electric Bill Calculator
 <h1 align="center">Hi 👋, This is a Electric Bill Calculator</h1>
 <h3 align="center">A Web-Based app to calculate and Divide Electric Bill with your Housemate</h3>
 
