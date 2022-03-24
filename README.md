@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, This is a Electric Bill Calculator</h1>
 <h3 align="center">A Web-Based app to calculate and Divide Electric Bill with your Housemate</h3>
 
-- 🔭 I’m currently working on **Web-Based app to calculate and Divide Electric Bill with your Housemate**
+- 🔭 I’m currently working on **Web-Based app to Calculate and Divide Electric Bill with your Housemate**
 
 - 🌱 I’m currently learning **Laravel, Angular**
 
