@@ -66,7 +66,7 @@
                     <i class="bx bx-receipt"></i>
                     <h4>How Does It Works</h4>
                     <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                    <a href="aboutus.php" class="more-btn">... <i class="bx bx-chevron-right"></i></a>
+                    <a href="calculator.php" class="more-btn">Try Me Now <i class="bx bx-chevron-right"></i></a>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
@@ -74,7 +74,7 @@
                     <i class="bx bx-cube-alt"></i>
                     <h4>Here's some Tips</h4>
                     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                    <a href="aboutus.php" class="more-btn">Tell Me More <i class="bx bx-chevron-right"></i></a>
+                    <a href="tips.php" class="more-btn">Tell Me More <i class="bx bx-chevron-right"></i></a>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
@@ -82,7 +82,7 @@
                     <i class="bx bx-images"></i>
                     <h4>Buy us a Coffee</h4>
                     <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                     <a href="aboutus.php" class="more-btn">Support Us <i class="bx bx-chevron-right"></i></a>
+                     <a href="donate.php" class="more-btn">Support Us <i class="bx bx-chevron-right"></i></a>
 
                   </div>
                 </div>
