@@ -1,0 +1,9 @@
+.accordionImg{
+    width: 550px;
+    margin: auto;
+    padding: 10 0 10 0;
+}
+
+.accordionImg img{
+    width: 100%;
+}
