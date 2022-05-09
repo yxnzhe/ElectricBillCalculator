@@ -50,8 +50,7 @@
             <div class="content">
               <h3>Why Choose Elec Tricks?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                We will make your life easier while splitting your electricity bill with your housemates. Our calculator provides Easy-to-use and accurate counting for all.
               </p>
               <div class="text-center">
                 <a href="aboutus.php" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
@@ -65,7 +64,7 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
                     <h4>How Does It Works</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <p>Just put in the voltage unit & price, the calculator will split out all the rooms & common area usage</p>
                     <a href="calculator.php" class="more-btn">Try Me Now <i class="bx bx-chevron-right"></i></a>
                   </div>
                 </div>
@@ -73,7 +72,7 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-cube-alt"></i>
                     <h4>Here's some Tips</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <p>Paying alot more then expected on the bill? Here some tips to save your bank.</p>
                     <a href="tips.php" class="more-btn">Tell Me More <i class="bx bx-chevron-right"></i></a>
                   </div>
                 </div>
@@ -81,7 +80,7 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-images"></i>
                     <h4>Buy us a Coffee</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                    <p>Like our work? do support us here as it motivates us to make the app better.</p>
                      <a href="donate.php" class="more-btn">Support Us <i class="bx bx-chevron-right"></i></a>
 
                   </div>
